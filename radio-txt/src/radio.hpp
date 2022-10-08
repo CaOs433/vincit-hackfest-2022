@@ -45,6 +45,6 @@ class HackRadio{
     void sendData(char msg[]);
     void irq(void);
     void radioSetup(void);
-    void sendDataToScreen(char str[]);
+    static void sendDataToScreen(char str[], int size);
 
 };
