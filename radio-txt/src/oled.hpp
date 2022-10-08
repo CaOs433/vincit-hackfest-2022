@@ -6,7 +6,6 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-#include <string>
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
@@ -24,7 +23,7 @@ class OLED {
     void initDisplay(void);
     void refreshDisplay(void);
     void clearDisplay(void);
-    void drawchar(String str, int16_t x, int16_t y);
+    void drawchar(char str[], int16_t x, int16_t y,int size);
 
   private:
     Adafruit_SSD1306 display;
