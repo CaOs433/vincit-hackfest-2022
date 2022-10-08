@@ -1,17 +1,21 @@
- #include "LoRaWan_APP.h"
 #include "Arduino.h"
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include "oled.hpp"
+#include "radio.hpp"
 
 
+HackRadio radio;
 
 void setup() {
+
   Serial.begin(9600);
   delay(2000);
-Serial.println("SETUP");
+  radio = HackRadio{};
+  radio.radioSetup();
+  Serial.println("SETUP");
   OLED oled{};
 
   oled.initDisplay();
@@ -34,5 +38,8 @@ Serial.println("SETUP");
 
 void loop() {
   delay(2000);
-  Serial.println("HELLO WOLR");
+  char msg[30] ="????";
+  radio.sendData(msg);
+  radio.irq();
+  
 }
